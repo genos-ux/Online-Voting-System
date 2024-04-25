@@ -24,9 +24,10 @@ input{
 }
 
 #loginbtn{
-    padding: 8px;
+    padding: 10px;
     border-radius: 5px;
     background-color: #48dbfb;
     color: white;
     border: none;
+    font-size: 15px;
 }
