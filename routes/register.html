@@ -5,6 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Voting System - Registration</title>
     <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        #address{
+            width: 28%;
+        }
+
+        #imagepart{
+            border: 2px solid black;
+            border-radius: 5px;
+            padding: 10px;
+            width: 30%;
+            text-align: center;
+            /* margin: 0 auto; */
+        }
+        #role{
+            border: 2px solid black;
+            border-radius: 5px;
+            padding: 10px;
+            width: 30%;
+            text-align: center;
+        }
+
+        #role select{
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        #register_button{
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #48dbfb;
+            color: white;
+            border: none;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+    </style>
 </head>
 <body>
     <div id="headerSection">
@@ -16,18 +54,29 @@
         <h3>Registration</h3>
 
         <form action="">
-            <input type="text" name="name" placeholder="Enter name">
-            <input type="number" name="mobile" placeholder="Enter mobile"><br><br>
+            <input type="text" name="name" placeholder="Name">
+            <input type="number" name="mobile" placeholder="Mobile"><br><br>
             <input type="password" name="password" placeholder="Password">
             <input type="password" name="lpassword" placeholder="Confirm password"><br><br>
-            Upload image: <input type="file" name="photo"><br><br>
-            Select role: <select name="role">
-                <option value="1">Voter</option>
-                <option value="2">Group</option>
-            </select><br><br>
+            <input type="text" name="address" id="address" placeholder="Address"><br><br>
+            <center>
+                <div id="imagepart">
+                    Upload image: <input type="file" name="photo">
+                </div><br>
 
-            <button>Register</button><br><br>
+
+                <div id="role">
+                    Select your role: <select name="role">
+                        <option value="1">Voter</option>
+                        <option value="2">Group</option>
+                    </select>
+                </div><br>
+            </center>
+
+
+            <button id="register_button">Register</button><br><br>
             Already user? <a href="../index.html">Login here</a>
+
 
 
         </form>

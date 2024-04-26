@@ -19,8 +19,9 @@ input{
 #dropbox{
     padding: 10px;
     border-radius: 5px;
-    width: 13%;
+    width: 20%;
     border: none;
+
 }
 
 #loginbtn{
@@ -30,4 +31,15 @@ input{
     color: white;
     border: none;
     font-size: 15px;
+}
+
+#address{
+    /* width: 100%; */
+}
+
+#imagecss{
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 30%;
 }
