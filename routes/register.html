@@ -45,43 +45,45 @@
     </style>
 </head>
 <body>
-    <div id="headerSection">
-        <h1>Online Registration System</h1>
-    </div>
-    <hr>
+    <center>
+        <div id="headerSection">
+            <h1>Online Registration System</h1>
+        </div>
+        <hr>
 
-    <div id="bodySection">
-        <h3>Registration</h3>
+        <div id="bodySection">
+            <h3>Registration</h3>
 
-        <form action="../api/register.php" method="post" enctype="multipart/form-data">
-            <input type="text" name="name" placeholder="Name">
-            <input type="number" name="mobile" placeholder="Mobile"><br><br>
-            <input type="password" name="password" placeholder="Password">
-            <input type="password" name="lpassword" placeholder="Confirm password"><br><br>
-            <input type="text" name="address" id="address" placeholder="Address"><br><br>
-            <center>
-                <div id="imagepart">
-                    Upload image: <input type="file" name="photo">
-                </div><br>
+            <form action="../api/register.php" method="post" enctype="multipart/form-data">
+                <input type="text" name="name" placeholder="Name">
+                <input type="number" name="mobile" placeholder="Mobile"><br><br>
+                <input type="password" name="password" placeholder="Password">
+                <input type="password" name="lpassword" placeholder="Confirm password"><br><br>
+                <input type="text" name="address" id="address" placeholder="Address"><br><br>
 
-
-                <div id="role">
-                    Select your role: <select name="role">
-                        <option value="1">Voter</option>
-                        <option value="2">Group</option>
-                    </select>
-                </div><br>
-            </center>
+                    <div id="imagepart">
+                        Upload image: <input type="file" name="photo">
+                    </div><br>
 
 
-            <button id="register_button">Register</button><br><br>
-            Already user? <a href="../index.html">Login here</a>
+                    <div id="role">
+                        Select your role: <select name="role">
+                            <option value="1">Voter</option>
+                            <option value="2">Group</option>
+                        </select>
+                    </div><br>
 
 
 
-        </form>
+                <button id="register_button">Register</button><br><br>
+                Already user? <a href="../index.html">Login here</a>
 
-    </div>
+
+
+            </form>
+
+        </div>
+    </center>
 
 </body>
 </html>
