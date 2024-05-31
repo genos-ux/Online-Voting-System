@@ -1,14 +1,13 @@
 <?php
 session_start();
 
-if(isset($_SESSION['userdata'])){
-    header('location: ../');
-}
+// if(isset($_SESSION['userdata'])){
+//     header('location: ../');
+// }
 
 $userdata = $_SESSION['userdata'];
 
 ?>
-
 
 
 <!DOCTYPE html>
@@ -27,6 +26,8 @@ $userdata = $_SESSION['userdata'];
             background-color: #48dbfb;
             border-radius: 5px;
             float: left;
+            border: none;
+            cursor: pointer;
         }
 
         #logoutbtn{
@@ -37,6 +38,7 @@ $userdata = $_SESSION['userdata'];
             border: none;
             font-size: 15px;
             float: right;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -51,8 +53,8 @@ $userdata = $_SESSION['userdata'];
         </center>
         <hr>
 
-        <div id="Profile">
-            <img src="../uploads/ <?php echo $userdata['photo'] ?>" height="200" width="200" alt="">
+        <div id="Profile" style="float:left;text-align:justify;">
+            <img src="../uploads/<?php echo $userdata['photo'] ?>" height="150" width="150" alt="sitting down"><br><br>
 
             <b>Name:</b> <?php echo $userdata['name'] ?><br><br>
             <b>Mobile:</b> <?php echo $userdata['mobile'] ?><br><br>
