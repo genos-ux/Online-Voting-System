@@ -28,7 +28,7 @@ else{
     echo '
         <script>
             alert("Invalid credentials or User not found");
-            window.location = "../";
+            window.location = "../"
 
         </script>
 
