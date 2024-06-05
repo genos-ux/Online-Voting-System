@@ -10,7 +10,7 @@ $result = mysqli_query($connect, "SELECT * FROM user WHERE mobile = '$mobile' AN
 
 if(mysqli_num_rows($result) > 0){
     $userdata = mysqli_fetch_array($result);
-    $groups = mysqli_query($connect,"SELECT * FROM user WHERE role = 1");
+    $groups = mysqli_query($connect,"SELECT * FROM user WHERE role = 2");
     $groupsdata = mysqli_fetch_all($groups,MYSQLI_ASSOC);
 
     $_SESSION['userdata'] = $userdata;

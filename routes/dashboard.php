@@ -1,23 +1,27 @@
 <?php
 session_start();
-
 // if(isset($_SESSION['userdata'])){
 //     header('location: ../');
 // }
-
 $userdata = $_SESSION['userdata'];
 
-// echo '<pre>';
-// print_r($_SESSION['groupdata']);
-// echo '</pre>';
+// if(isset($_SESSION['groupdata']))
+// {
+//     $groupdata = $_SESSION['groupdata'];
 
-if(isset($_SESSION['groupdata']))
-{
-    $groupdata = $_SESSION['groupdata'];
+// }
+$groupdata = $_SESSION['groupdata'];
 
-}
+// if($userdata['status'] == 0)
+// {
+//     $status = `<b style="color:red">Not voted</b>`;
+// }
 
-
+// else
+// {
+//     $status = `<b style="color:green">Voted</b>`;
+// }
+$status = $userdata['status'] == 0 ? "<b style='color:red'>Not voted</b>" : "<b style='color:green'>Voted</b>";
 
 ?>
 
@@ -40,6 +44,7 @@ if(isset($_SESSION['groupdata']))
             float: left;
             border: none;
             cursor: pointer;
+            margin: 10px;
         }
 
         #logoutbtn{
@@ -51,6 +56,7 @@ if(isset($_SESSION['groupdata']))
             font-size: 15px;
             float: right;
             cursor: pointer;
+            margin: 10px;
         }
 
         #Profile {
@@ -80,6 +86,16 @@ if(isset($_SESSION['groupdata']))
 
         }
 
+        #mainSection
+        {
+            padding : 10px;
+        }
+
+        #mainpanel
+        {
+            padding : 10px;
+        }
+
 
     </style>
 </head>
@@ -87,53 +103,60 @@ if(isset($_SESSION['groupdata']))
     <div id="mainSection">
         <center>
             <div id="headerSection">
-                <button id="backbtn">Back</button>
-                <button id="logoutbtn">Logout</button>
+                <a href="../"><button id="backbtn">Back</button></a>
+                <!-- <button id="logoutbtn"><a href="logout.php"></a>Logout</button> -->
+                <a href="logout.php"><button id="logoutbtn">Logout</button></a>
                 <h1>Online Voting System</h1>
             </div>
 
         </center>
         <hr>
 
-        <div id="Profile" style="float:left;text-align:justify;">
-            <center><img src="../uploads/<?php echo $userdata['photo'] ?>" height="150" width="150" alt="sitting down"><br><br></center>
+        <div id="mainpanel">
+            <div id="Profile" style="float:left;text-align:justify;">
+                <center><img src="../uploads/<?php echo $userdata['photo'] ?>" height="150" width="150" alt="sitting down"><br><br></center>
 
-            <b>Name:</b> <?php echo $userdata['name'] ?><br><br>
-            <b>Mobile:</b> <?php echo $userdata['mobile'] ?><br><br>
-            <b>Address:</b> <?php echo $userdata['address'] ?><br><br>
-            <b>Status:</b> <?php echo $userdata['status'] ?><br><br>
+                <b>Name:</b> <?php echo $userdata['name'] ?><br><br>
+                <b>Mobile:</b> <?php echo $userdata['mobile'] ?><br><br>
+                <b>Address:</b> <?php echo $userdata['address'] ?><br><br>
+                <b>Status:</b> <?php echo $status  ?> <br><br>
 
-        </div>
-        <div id="Group">
-            <?php
-                if($_SESSION["groupdata"])
-                {
-                    for($i = 0; $i < count($groupdata); $i++){
-                        ?>
-                        <div>
-                            <img style="float: right" src="../uploads/<?php echo $groupdata[$i]['photo'] ?>" alt="" width = "100" height="100">
+            </div>
+            <div id="Group">
+                <?php
+                    if($_SESSION["groupdata"])
+                    {
+                        for($i = 0; $i < count($groupdata); $i++){
+                            ?>
+                            <div>
+                                <img style="float: right" src="../uploads/<?php echo $groupdata[$i]['photo'] ?>" alt="" width = "100" height="100">
 
-                            <b>Group Name: <?php echo $groupdata[$i]['name'] ?> </b><br><br>
-                            <b>Votes: <?php echo $groupdata[$i]['votes'] ?></b> <br><br>
-                            <form action="#"">
-                                <input type="hidden" name="gvotes" value="<?php echo $groupdata[$i]['votes'] ?>">
-                                <input type="submit" name="votebtn" value="vote" id="votebtn">
-                            </form>
+                                <b>Candidate Name: <?php echo $groupdata[$i]['name'] ?> </b><br><br>
+                                <b>Votes: <?php echo $groupdata[$i]['votes'] ?></b> <br><br>
+                                <form action="../api/vote.php" method = "POST">
+                                    <input type="hidden" name="gvotes" value="<?php echo $groupdata[$i]['votes'] ?>">
+                                    <input type="hidden" name="gid" value="<?php echo $groupdata[$i]['id'] ?>">
+                                    <input type="submit" name="votebtn" value="vote" id="votebtn">
+                                </form>
 
-                            <hr>
-                        </div>
-                        <?php
+                                <hr>
+                            </div>
+                            <?php
+                        }
+
+                    }
+                    else
+                    {
+
                     }
 
-                }
-                else
-                {
+                ?>
 
-                }
-
-            ?>
+            </div>
 
         </div>
+
+
 
     </div>
 
